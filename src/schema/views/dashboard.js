@@ -16,7 +16,7 @@ module.exports = {
     style: {minWidth: '200px'},
     defaultActive: '',
     menus: [
-      {title: 'User', index: 'User', type: 'menu-item', route: '/users'},
+      {title: 'User', index: 'User', type: 'menu-item', route: '/users'}, // index should equal to routeName
       {title: '导航一', index: '1', type: 'submenu', icon: 'el-icon-menu', items: [
         {title: 'group1', type: 'menu-item-group', items: [
           {title: '1-1-1', index: '1-1-1', type: 'menu-item'},

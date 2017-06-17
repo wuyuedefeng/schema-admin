@@ -1,6 +1,6 @@
 <template>
   <div>
-    404
+    404 Page Not Found
   </div>
 </template>
 
@@ -9,5 +9,11 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="scss" scoped>
+div {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
 </style>
