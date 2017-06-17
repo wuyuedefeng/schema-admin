@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 // 导入modules
 import user from './modules/user'
+import dashboard from './modules/dashboard'
 var store = new Vuex.Store({
   state: {
   },
@@ -12,7 +13,8 @@ var store = new Vuex.Store({
   mutations: {
   },
   modules: {
-    user
+    user,
+    dashboard
   }
 })
 export default store
