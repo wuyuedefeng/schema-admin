@@ -1,12 +1,16 @@
 <template>
   <el-menu theme="dark" :default-active="activeIndex" mode="horizontal" @select="handleSelect" class="TopNavMenu clearfix">
-    <div class="fl">
-      <el-menu-item index="1">schema admin</el-menu-item>
+    <div v-for="(items, key) in schema.views.dashboard.topNavMenu" :key=key>
+      <div :class="key">
+        <div v-for="item in items">
+            <el-menu-item :index="item.index" v-if="item.type==='menu-item'">{{item.title}}</el-menu-item>
+            <el-submenu :index="item.index" v-if="item.type==='submenu'">
+              <template slot="title">{{item.title}}</template>
+              <el-menu-item v-for="(subItem, index) in item.items" :index="subItem.index" :key="subItem.index">{{subItem.title}}</el-menu-item>
+            </el-submenu>
+        </div>
+      </div>
     </div>
-    <div class="fr">
-      <el-menu-item index="2">个人中心</el-menu-item>
-    </div>
-
   </el-menu>
 </template>
 
@@ -15,7 +19,7 @@ export default {
   name: 'TopNavMenu',
   data () {
     return {
-      activeIndex: '1'
+      activeIndex: ''
     }
   },
   methods: {

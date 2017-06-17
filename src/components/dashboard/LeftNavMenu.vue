@@ -1,21 +1,17 @@
 <template>
-  <el-menu default-active="2" @open="handleOpen" @close="handleClose" theme="light" class="LeftNavMenu">
-    <el-submenu index="1">
-     <template slot="title"><i class="el-icon-menu"></i>导航一</template>
-     <el-menu-item-group title="分组一">
-       <el-menu-item index="1-1">选项1</el-menu-item>
-       <el-menu-item index="1-2">选项2</el-menu-item>
-     </el-menu-item-group>
-     <el-menu-item-group title="分组2">
-       <el-menu-item index="1-3">选项3</el-menu-item>
-     </el-menu-item-group>
-     <el-submenu index="1-4">
-       <template slot="title">选项4</template>
-       <el-menu-item index="1-4-1">选项fdsafasdfadsfsadf1</el-menu-item>
-     </el-submenu>
+  <el-menu default-active="2" @open="handleOpen" @close="handleClose" theme="light" :style="schema.views.dashboard.leftNavMenu.style">
+    <div v-for="(item,index) in schema.views.dashboard.leftNavMenu.menus" :key="index">
+    <el-submenu v-if="item.type==='submenu'" :index="item.index">
+     <template slot="title"><i class="el-icon-menu"></i>{{item.title}}</template>
+     <div v-for="(item,index) in item.items" :key="index">
+       <el-menu-item-group v-if="item.type==='menu-item-group'" :title="item.title">
+         <el-menu-item v-for="(item,index) in item.items" :key="index" :index="item.index">{{item.title}}</el-menu-item>
+       </el-menu-item-group>
+       <el-menu-item v-else-if="item.type==='menu-item'" :index="item.index">{{item.title}}</el-menu-item>
+     </div>
     </el-submenu>
-    <el-menu-item index="2">导航二</el-menu-item>
-    <el-menu-item index="3">导航三</el-menu-item>
+    <el-menu-item v-if="item.type==='menu-item'" :index="item.index">{{item.title}}</el-menu-item>
+    </div>
   </el-menu>
 </template>
 
@@ -34,7 +30,4 @@ export default {
 </script>
 
 <style lang="scss">
-.LeftNavMenu {
-  min-width: 200px;
-}
 </style>

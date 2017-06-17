@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
-import { Menu, Submenu, MenuItem, MenuItemGroup } from 'element-ui'
-let elements = [Menu, Submenu, MenuItem, MenuItemGroup]
+import { Menu, Submenu, MenuItem, MenuItemGroup, Dropdown, DropdownMenu, DropdownItem } from 'element-ui'
+let elements = [Menu, Submenu, MenuItem, MenuItemGroup, Dropdown, DropdownMenu, DropdownItem]
 elements.forEach((element) => {
   Vue.component(element.name, element)
 })
