@@ -45,8 +45,9 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .TopNavMenu {
+  box-sizing: border-box;
   position: relative;
   z-index: 1;
 }

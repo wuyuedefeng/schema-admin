@@ -13,7 +13,7 @@ module.exports = {
     ]
   },
   leftNavMenu: {
-    style: {minWidth: '200px'},
+    style: {minWidth: '230px'},
     defaultActive: '',
     menus: [
       {title: 'User', index: 'User', type: 'menu-item', route: {path: '/users'}}, // index should equal to routeName
