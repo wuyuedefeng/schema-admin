@@ -1,13 +1,12 @@
 <template>
   <div id="app">
     <div v-if="isLogin">
-      <div class="page-header">
-        <header-top></header-top>
-        <header-menu></header-menu>
+      <div class="app-header">
+        <TopNavMenu></TopNavMenu>
       </div>
-      <div class="page-container">
-        <breadcrumb></breadcrumb>
-        <div class="page-content">
+      <div class="app-container">
+        <LeftNavMenu></LeftNavMenu>
+        <div class="page-container">
           <router-view></router-view>
         </div>
       </div>
@@ -28,8 +27,19 @@ export default {
 }
 </script>
 
-<style>
+<style lang=scss>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
+}
+.app-container {
+  min-height: 660px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+
+  .page-container {
+    background: #fff;
+    flex: 1;
+  }
 }
 </style>

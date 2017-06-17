@@ -11,6 +11,7 @@ import schema from './schema'
 import './components/common'
 // stylesheets
 import './assets/stylesheets/base.scss'
+import 'element-ui/lib/theme-default/index.css'
 
 Vue.use(schema)
 Vue.use(api, { store })
