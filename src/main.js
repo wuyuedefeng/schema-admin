@@ -7,6 +7,11 @@ import store from './store'
 import api from './api'
 import schema from './schema'
 
+// 加载公共组件
+import './components/common'
+// stylesheets
+import './assets/stylesheets/base.scss'
+
 Vue.use(schema)
 Vue.use(api, { store })
 
