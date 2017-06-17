@@ -1,9 +1,12 @@
 import * as types from '../mutation-types'
 export default {
   state: {
-    info: null
+    info: {}
   },
   getters: {
+    isLogin (state) {
+      return !!state.info
+    }
   },
   actions: {
     setUserInfo ({commit, dispatch, state}, info) {

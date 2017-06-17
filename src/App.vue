@@ -1,23 +1,35 @@
 <template>
   <div id="app">
-    <img src="~assets/logo.png">
-    <router-view></router-view>
+    <div v-if="isLogin">
+      <div class="page-header">
+        <header-top></header-top>
+        <header-menu></header-menu>
+      </div>
+      <div class="page-container">
+        <breadcrumb></breadcrumb>
+        <div class="page-content">
+          <router-view></router-view>
+        </div>
+      </div>
+    </div>
+    <div v-else>
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  name: 'app'
+  name: 'app',
+  computed: {
+    ...mapGetters(['isLogin'])
+  }
 }
 </script>
 
 <style>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
