@@ -10,7 +10,7 @@
        <el-menu-item v-else-if="item.type==='menu-item'" :index="item.index">{{item.title}}</el-menu-item>
      </div>
     </el-submenu>
-    <el-menu-item v-if="item.type==='menu-item'" :index="item.index">{{item.title}}</el-menu-item>
+    <el-menu-item v-if="item.type==='menu-item'" :index="item.index" @click="goRoute(item.route)">{{item.title}}</el-menu-item>
     </div>
   </el-menu>
 </template>
@@ -24,6 +24,9 @@ export default {
     },
     handleClose (key, keyPath) {
       console.log(key, keyPath)
+    },
+    goRoute (path) {
+      this.$router.push({path: path})
     }
   }
 }
