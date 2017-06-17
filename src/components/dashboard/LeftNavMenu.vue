@@ -2,7 +2,7 @@
   <el-menu default-active="2" @open="handleOpen" @close="handleClose" theme="light" :style="schema.views.dashboard.leftNavMenu.style">
     <div v-for="(item,index) in schema.views.dashboard.leftNavMenu.menus" :key="index">
     <el-submenu v-if="item.type==='submenu'" :index="item.index">
-     <template slot="title"><i class="el-icon-menu"></i>{{item.title}}</template>
+     <template slot="title"><i v-if="item.icon" :class="item.icon"></i>{{item.title}}</template>
      <div v-for="(item,index) in item.items" :key="index">
        <el-menu-item-group v-if="item.type==='menu-item-group'" :title="item.title">
          <el-menu-item v-for="(item,index) in item.items" :key="index" :index="item.index">{{item.title}}</el-menu-item>
