@@ -5,7 +5,9 @@ import App from './App'
 import router from './router'
 import store from './store'
 import api from './api'
+import schema from './schema'
 
+Vue.use(schema)
 Vue.use(api, { store })
 
 Vue.config.productionTip = false

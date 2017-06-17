@@ -41,7 +41,7 @@ instance.install = function (Vue, options) {
     store = options.store
     console.log(store)
   }
-  Vue.prototype.api = instance
-  Vue.api = instance
+  Vue.prototype.$api = instance
+  Vue.$api = instance
 }
 export default instance
