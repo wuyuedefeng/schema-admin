@@ -10,8 +10,10 @@
         <el-option v-for="option in column.options" :key="option.value" :label="option.label" :value="option.value"></el-option>
       </el-select>
       <!-- switch -->
-      <el-switch v-else-if="column.control==='switch'" v-model="formModel[column.prop]" :disabled="column.disabled" :on-text="column.onText" :off-text="column.offText" :on-color="column.onColor" :off-color="column.offColor">
-</el-switch>
+      <el-switch v-else-if="column.control==='switch'" v-model="formModel[column.prop]" :disabled="column.disabled" :on-text="column.onText" :off-text="column.offText" :on-color="column.onColor" :off-color="column.offColor"></el-switch>
+      <!-- date -->
+      <el-date-picker  v-else-if="column.control==='datePicker'" v-model="formModel[column.prop]" :disabled="column.disabled" :placeholder="column.placeholder" :type="column.type" :format="column.format" :editable="column.editable" :clearable="column.clearable" :picker-options="column.pickerOptions" :range-separator="column.rangeSeparator">
+    </el-date-picker>
     </el-form-item>
     <el-form-item>
       <el-button @click="resetForm('formRef')" v-if="isNew">Reset</el-button>
@@ -21,7 +23,7 @@
 </template>
 
 <script>
-import { Form, FormItem, Input, InputNumber, Select, Option, Switch } from 'element-ui'
+import { Form, FormItem, Input, InputNumber, Select, Option, Switch, DatePicker } from 'element-ui'
 // mixin
 import mixinSForm from '@/components/mixin/sForm'
 export default {
@@ -41,7 +43,8 @@ export default {
     [InputNumber.name]: InputNumber,
     [Select.name]: Select,
     [Option.name]: Option,
-    [Switch.name]: Switch
+    [Switch.name]: Switch,
+    [DatePicker.name]: DatePicker
   }
 }
 </script>
