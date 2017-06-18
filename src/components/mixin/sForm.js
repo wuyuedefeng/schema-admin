@@ -1,8 +1,12 @@
 export default {
   data () {
     return {
-      isNew: true,
       fetching: false
+    }
+  },
+  computed: {
+    isNew () {
+      return !this.formModel.id
     }
   },
   methods: {

@@ -1,7 +1,17 @@
 <template>
   <el-form :model="formModel" ref="formRef" :labelWidth="form.labelWidth">
     <el-form-item v-for="(column,index) in form.columns" :key="index" :label="column.label" :prop="column.prop">
-      <el-input v-if="column.control==='input'" v-model="formModel[column.prop]" :placeholder="column.placeholder"></el-input>
+      <!-- input -->
+      <el-input v-if="column.control==='input'" v-model="formModel[column.prop]" :disabled="column.disabled" :placeholder="column.placeholder"></el-input>
+      <!-- input number -->
+      <el-input-number v-else-if="column.control==='inputNumber'" v-model="formModel[column.prop]" :disabled="column.disabled" :placeholder="column.placeholder" :min="column.min" :max="column.max" :step="column.step || 1"></el-input-number>
+      <!-- select -->
+      <el-select v-else-if="column.control==='select'" v-model="formModel[column.prop]" :disabled="column.disabled" :placeholder="column.placeholder" :multiple="column.multiple" :clearable="column.clearable">
+        <el-option v-for="option in column.options" :key="option.value" :label="option.label" :value="option.value"></el-option>
+      </el-select>
+      <!-- switch -->
+      <el-switch v-else-if="column.control==='switch'" v-model="formModel[column.prop]" :disabled="column.disabled" :on-text="column.onText" :off-text="column.offText" :on-color="column.onColor" :off-color="column.offColor">
+</el-switch>
     </el-form-item>
     <el-form-item>
       <el-button @click="resetForm('formRef')" v-if="isNew">Reset</el-button>
@@ -11,7 +21,7 @@
 </template>
 
 <script>
-import { Form, FormItem, Input } from 'element-ui'
+import { Form, FormItem, Input, InputNumber, Select, Option, Switch } from 'element-ui'
 // mixin
 import mixinSForm from '@/components/mixin/sForm'
 export default {
@@ -27,7 +37,11 @@ export default {
   components: {
     [Form.name]: Form,
     [FormItem.name]: FormItem,
-    [Input.name]: Input
+    [Input.name]: Input,
+    [InputNumber.name]: InputNumber,
+    [Select.name]: Select,
+    [Option.name]: Option,
+    [Switch.name]: Switch
   }
 }
 </script>
