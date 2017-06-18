@@ -33,7 +33,8 @@ const controllers = {
       form: {
         labelWidth: null, // 100px
         columns: [
-          {prop: 'username', label: '用户名', control: 'input', default: '', placeholder: '请输入用户名', disabled: false},
+          {prop: 'username', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '请输入用户名', disabled: false, autoComplate: false, minLength: 0, maxLength: 30, autoFocus: true},
+          {prop: 'password', label: '密码', control: 'input', type: 'password'},
           {prop: 'phone', label: '手机号', control: 'input', default: '', placeholder: '请输入手机号'},
           {prop: 'gender', label: '性别', control: 'select', default: '', placeholder: '选择性别', multiple: false, options: [{label: '男', value: 0}, {label: '女', value: 1}], clearable: false},
           {prop: 'age', label: '年龄', control: 'inputNumber', default: 20, placeholder: '填写年龄', min: 1, max: 120, step: 1},
@@ -43,6 +44,8 @@ const controllers = {
           {prop: 'birthday', label: '生日', control: 'datePicker', type: 'date', format: 'yyyy-MM-dd', editable: false, default: '', placeholder: '选择生日', clearable: false, rangeSeparator: '-',
             pickerOptions: { disabledDate (time) { return time.getTime() > Date.now() } }
           },
+          // autosize 只对 type="textarea"有效，可传入对象，如，{ minRows: 2, maxRows: 6 } or true, false
+          {prop: 'desc', label: '描述', control: 'input', default: '', type: 'textarea', autosize: true, placeholder: '请输入描述', disabled: false},
         ]
       }
     }

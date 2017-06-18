@@ -2,7 +2,7 @@
   <el-form :model="formModel" ref="formRef" :labelWidth="form.labelWidth">
     <el-form-item v-for="(column,index) in form.columns" :key="index" :label="column.label" :prop="column.prop">
       <!-- input -->
-      <el-input v-if="column.control==='input'" v-model="formModel[column.prop]" :disabled="column.disabled" :placeholder="column.placeholder"></el-input>
+      <el-input v-if="column.control==='input'" v-model="formModel[column.prop]" :type="column.type" :autosize="column.autosize" :disabled="column.disabled" :placeholder="column.placeholder" :auto-complete="column.autoComplate" :minlength="column.minLength" :maxlength="column.maxLength" :autofocus="column.autoFocus"></el-input>
       <!-- input number -->
       <el-input-number v-else-if="column.control==='inputNumber'" v-model="formModel[column.prop]" :disabled="column.disabled" :placeholder="column.placeholder" :min="column.min" :max="column.max" :step="column.step || 1"></el-input-number>
       <!-- select -->
