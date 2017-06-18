@@ -28,7 +28,14 @@ const controllers = {
       ]
     },
     new: {
-      dialog: {size: 'large', closeOnClickModal: false, title: '新增用户'}
+      dialog: {size: 'large', closeOnClickModal: false, title: '新增用户'},
+      form: {
+        labelWidth: null, // 100px
+        columns: [
+          {prop: 'username', label: '用户名', control: 'input', default: '', placeholder: '请输入用户名'},
+          {prop: 'phone', label: '手机号', control: 'input', default: '', placeholder: '请输入手机号'}
+        ]
+      }
     }
   }
 }

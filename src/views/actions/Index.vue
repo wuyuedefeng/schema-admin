@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import New from '@/components/ui/New'
-import Panel from '@/components/ui/Panel'
+import New from '@/components/actions/New'
+import Panel from '@/components/shared/Panel'
 // mixin
 import mixinIndex from '@/components/mixin/index'
 export default {
