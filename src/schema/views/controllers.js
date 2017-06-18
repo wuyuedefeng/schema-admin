@@ -18,7 +18,12 @@ const controllers = {
     show: {
       router: {path: '/users/:id', name: 'UserEdit', meta: {auth: true, actionView: 'Show'}},
       api: '/api/v1/users/:id',
-      itemKey: 'item'
+      itemKey: 'user',
+      columns: [
+        {prop: 'id', label: 'id', labelStyle: {width: '100px'}},
+        {prop: 'username', label: '用户名', labelStyle: {width: '100px'}},
+        {prop: 'email', label: '邮箱', labelStyle: {width: '100px'}}
+      ]
     }
   }
 }
