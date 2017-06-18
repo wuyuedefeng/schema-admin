@@ -28,7 +28,7 @@ import { Form, FormItem, Input, InputNumber, Select, Option, Switch, DatePicker 
 import mixinSForm from '@/components/mixin/sForm'
 export default {
   mixins: [mixinSForm],
-  props: ['form', 'formModel'],
+  props: ['form', 'formModel', 'handler'],
   name: 'SForm',
   data () {
     return {

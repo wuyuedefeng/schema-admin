@@ -29,6 +29,7 @@ const controllers = {
     },
     new: {
       dialog: {size: 'large', closeOnClickModal: false, title: '新增用户'},
+      api: {method: 'post', path: '/api/v1/users'},
       form: {
         labelWidth: null, // 100px
         columns: [

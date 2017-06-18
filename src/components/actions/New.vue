@@ -2,7 +2,7 @@
   <div class="ui-new" v-if="actionInfo">
     <el-button :type="operation.type" @click="dialogFormVisible = true">{{operation.label}}</el-button>
     <el-dialog :size="actionInfo.dialog.size" :title="actionInfo.dialog.title" :close-on-click-modal="actionInfo.dialog.closeOnClickModal" v-model="dialogFormVisible">
-      <s-form :form="actionInfo.form" :formModel="formModel"></s-form>
+      <s-form :form="actionInfo.form" :formModel="formModel" :handler="handlerCreate"></s-form>
     </el-dialog>
   </div>
 </template>
@@ -14,10 +14,15 @@ import SForm from '@/components/shared/SForm'
 import mixinNew from '@/components/mixin/new'
 export default {
   mixins: [mixinNew],
-  props: ['operation'],
+  props: ['operation', 'handle'],
   name: 'New',
   data () {
     return {
+    }
+  },
+  methods: {
+    handlerCreate (formModel) {
+      this._handlerCreate(formModel)
     }
   },
   components: {

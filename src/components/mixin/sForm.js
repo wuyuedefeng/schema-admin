@@ -11,8 +11,14 @@ export default {
   },
   methods: {
     resetForm (form) {
-      console.log(this.formModel)
       this.$refs[form].resetFields()
+    },
+    submitForm (form) {
+      this.$refs[form].validate((valid) => {
+        if (valid) {
+          this.handler(this.formModel)
+        }
+      })
     }
   }
 }

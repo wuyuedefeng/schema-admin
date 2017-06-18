@@ -1,4 +1,4 @@
-import { getControllerActionColumnOperationLinkTo } from '@/libs/schemaTool'
+import { getControllerActionColumnOperationLinkTo, reverseApi } from '@/libs/schemaTool'
 export default {
   data () {
     return {
@@ -17,6 +17,18 @@ export default {
         })
         this.formModel = formModel
       }
+    }
+  },
+  methods: {
+    _handlerCreate (formModel) {
+      console.log('submit form: ', formModel)
+      let api = reverseApi(this.actionInfo.api, this.$route.params)
+      this.$api[api.method](api.path, formModel).then((res) => {
+        this.dialogFormVisible = false
+        this.handler && this.handler()
+      }).catch((err) => {
+        console.log(err)
+      })
     }
   },
   mounted () {

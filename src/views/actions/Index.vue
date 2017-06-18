@@ -2,7 +2,7 @@
   <div v-if="actionInfo">
     <div class="panel-header">
       <div v-for="(operation,index) in actionInfo.operations" :key="index">
-        <new v-if="operation.actionView === 'New'" :operation="operation"></new>
+        <new v-if="operation.actionView === 'New'" :operation="operation" :handle="fetchData"></new>
       </div>
     </div>
     <el-card>
