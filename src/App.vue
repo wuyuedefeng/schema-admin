@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style lang=scss>
+<style lang="scss" scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
@@ -38,8 +38,10 @@ export default {
   align-items: stretch;
 
   .page-container {
-    background: #fff;
+    box-sizing: content-box;
     flex: 1;
+    background: #fff;
+    padding: 5px 10px;
   }
 }
 </style>

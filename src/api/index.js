@@ -1,7 +1,8 @@
 import axios from 'axios'
+import schema from '../schema'
 var store = null
 const instance = axios.create({
-  baseURL: process.env.API_ROOT,
+  baseURL: schema.env.API_ROOT,
   timeout: 150000,
   headers: {
     'Content-Type': 'application/json',

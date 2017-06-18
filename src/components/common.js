@@ -1,13 +1,16 @@
 import Vue from 'vue'
 
-// import { Menu, Submenu, MenuItem, MenuItemGroup, Dropdown, DropdownMenu, DropdownItem } from 'element-ui'
-// let elements = [Menu, Submenu, MenuItem, MenuItemGroup, Dropdown, DropdownMenu, DropdownItem]
-// elements.forEach((element) => {
-//   Vue.component(element.name, element)
-// })
+import { Button, Loading } from 'element-ui'
+let elements = [Button]
+Vue.use(Loading.directive)
+Vue.prototype.$loading = Loading.service
 
 import LeftNavMenu from './dashboard/LeftNavMenu'
-Vue.component(LeftNavMenu.name, LeftNavMenu)
+elements.push(LeftNavMenu)
 
 import TopNavMenu from './dashboard/TopNavMenu'
-Vue.component(TopNavMenu.name, TopNavMenu)
+elements.push(TopNavMenu)
+
+elements.forEach((element) => {
+  Vue.component(element.name, element)
+})

@@ -1,5 +1,4 @@
 html {
-  box-sizing: border-box;
   font-family: Arial, sans-serif;
 }
 
@@ -11,7 +10,7 @@ html {
   /*Older Androids need this instead*/
   -webkit-tap-highlight-color: transparent;
   /* Most devs find border-box easier to reason about. However by inheriting we can mix box-sizing approaches.*/
-  box-sizing: inherit;
+  box-sizing: border-box;
   /* reset style */
   margin: 0;
   padding: 0;
