@@ -1,35 +1,41 @@
 <template>
   <div v-if="actionInfo">
-    <el-row :gutter="20">
-      <el-col :xs="24" :sm="24" :md="12" :lg="8" v-for="(column,index) in actionInfo.columns" :key="index" class="col-item">
-        <div class="column">
-          <div class="label" :style="column.labelStyle">
-            <span>{{column.label}}</span>
+    <div class="panel-header">
+      <el-button>编辑</el-button>
+    </div>
+    <el-card>
+      <el-row :gutter="20">
+        <el-col :xs="24" :sm="24" :md="12" :lg="8" v-for="(column,index) in actionInfo.columns" :key="index" class="col-item">
+          <div class="column">
+            <div class="label" :style="column.labelStyle">
+              <span>{{column.label}}</span>
+            </div>
+            <div class="value">
+              <span>{{item && item[column.prop]}}</span>
+            </div>
           </div>
-          <div class="value">
-            <span>{{item && item[column.prop]}}</span>
-          </div>
-        </div>
-      </el-col>
-    </el-row>
+        </el-col>
+      </el-row>
+    </el-card>
   </div>
 </template>
 
 <script>
 import mixinShow from '@/components/mixin/show'
 import { reverseApi } from '@/libs/schemaTool'
-import { Row, Col } from 'element-ui'
+import { Row, Col, Card } from 'element-ui'
 export default {
   mixins: [mixinShow],
   methods: {
     fetchData () {
       let api = reverseApi(this.actionInfo.api, this.$route.params)
-      this._fetchData(this.$api.get(api))
+      this._fetchData(this.$api[api.method](api.path))
     }
   },
   components: {
     [Row.name]: Row,
-    [Col.name]: Col
+    [Col.name]: Col,
+    [Card.name]: Card
   }
 }
 </script>

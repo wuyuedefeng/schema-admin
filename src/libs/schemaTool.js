@@ -13,6 +13,7 @@ export const getControllerActionColumnOperationLinkTo = (operation) => {
 
 let Route = require('route-parser')
 export const reverseApi = (api, params) => {
-  var route = new Route(api)
-  return route.reverse(params)
+  var route = new Route(api.path)
+  api.path = route.reverse(params)
+  return api
 }

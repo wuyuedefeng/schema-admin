@@ -40,7 +40,6 @@ export default {
   .page-container {
     box-sizing: content-box;
     flex: 1;
-    background: #fff;
     padding: 5px 10px;
   }
 }

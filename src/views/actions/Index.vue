@@ -12,7 +12,7 @@ export default {
   mixins: [mixinIndex],
   methods: {
     fetchData () {
-      this._fetchData(this.$api.get(this.actionInfo.api))
+      this._fetchData(this.$api[this.actionInfo.api.method](this.actionInfo.api.path))
     }
   },
   components: {
