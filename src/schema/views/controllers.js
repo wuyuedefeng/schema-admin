@@ -1,7 +1,7 @@
 const controllers = {
   users: {
     index: {
-      router: {path: '/users', name: 'User', meta: { auth: true, actionView: 'Index' }},
+      router: {path: '/users', name: 'User', meta: { auth: true, actionView: 'Index', navIndex: 'User' }},
       api: {method: 'get', path: '/api/v1/users'},
       itemsKey: 'items', // res.data.items
       columns: [
@@ -16,7 +16,7 @@ const controllers = {
       ]
     },
     show: {
-      router: {path: '/users/:id', name: 'UserEdit', meta: {auth: true, actionView: 'Show'}},
+      router: {path: '/users/:id', name: 'UserEdit', meta: {auth: true, actionView: 'Show', navIndex: 'User'}},
       api: {method: 'get', path: '/api/v1/users/:id'},
       itemKey: 'user',
       columns: [

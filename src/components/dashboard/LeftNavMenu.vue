@@ -35,6 +35,11 @@ export default {
       activeIndex: state => state.dashboard.activeIndex
     })
   },
+  watch: {
+    '$route.meta': function (newMeta) {
+      this.$store.dispatch('setNavActionIndex', newMeta.navIndex)
+    }
+  },
   methods: {
     toggleMenu () {
       this.isCloseMenu = !this.isCloseMenu
@@ -52,6 +57,9 @@ export default {
     goRoute (route) {
       route && this.$router.push(route)
     }
+  },
+  mounted () {
+    this.$store.dispatch('setNavActionIndex', this.$route.name)
   },
   components: {
     [Menu.name]: Menu,

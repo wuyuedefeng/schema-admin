@@ -1,6 +1,11 @@
 <template>
   <div>
-    <panel v-if="actionInfo" :items="items" :loading="loading" :fetchData="fetchData" :actionInfo="actionInfo"></panel>
+    <div class="panel-header">
+      <el-button>新增</el-button>
+    </div>
+    <el-card>
+      <panel v-if="actionInfo" :items="items" :loading="loading" :fetchData="fetchData" :actionInfo="actionInfo"></panel>
+    </el-card>
   </div>
 </template>
 

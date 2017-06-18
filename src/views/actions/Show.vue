@@ -23,7 +23,7 @@
 <script>
 import mixinShow from '@/components/mixin/show'
 import { reverseApi } from '@/libs/schemaTool'
-import { Row, Col, Card } from 'element-ui'
+import { Row, Col } from 'element-ui'
 export default {
   mixins: [mixinShow],
   methods: {
@@ -34,8 +34,7 @@ export default {
   },
   components: {
     [Row.name]: Row,
-    [Col.name]: Col,
-    [Card.name]: Card
+    [Col.name]: Col
   }
 }
 </script>

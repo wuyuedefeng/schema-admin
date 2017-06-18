@@ -1,7 +1,7 @@
 import Vue from 'vue'
 
-import { Button, Loading } from 'element-ui'
-let elements = [Button]
+import { Button, Card, Loading } from 'element-ui'
+let elements = [Button, Card]
 Vue.use(Loading.directive)
 Vue.prototype.$loading = Loading.service
 
