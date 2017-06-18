@@ -9,10 +9,12 @@ Object.keys(controllers).forEach((key) => {
   let controller = controllers[key]
   Object.keys(controller).forEach((key) => {
     let router = controller[key]['router']
-    router.meta.controllerInfo = controller
-    router.meta.actionInfo = controller[key]
-    router.component = (resolve) => { require([`@/views/actions/${router.meta.actionView}`], resolve) }
-    actionRoutes.push(router)
+    if (router) {
+      router.meta.controllerInfo = controller
+      router.meta.actionInfo = controller[key]
+      router.component = (resolve) => { require([`@/views/actions/${router.meta.actionView}`], resolve) }
+      actionRoutes.push(router)
+    }
   })
 })
 

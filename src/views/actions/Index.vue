@@ -1,15 +1,18 @@
 <template>
-  <div>
+  <div v-if="actionInfo">
     <div class="panel-header">
-      <el-button>新增</el-button>
+      <div v-for="(operation,index) in actionInfo.operations" :key="index">
+        <new v-if="operation.actionView === 'New'" :operation="operation"></new>
+      </div>
     </div>
     <el-card>
-      <panel v-if="actionInfo" :items="items" :loading="loading" :fetchData="fetchData" :actionInfo="actionInfo"></panel>
+      <panel :items="items" :loading="loading" :fetchData="fetchData" :actionInfo="actionInfo"></panel>
     </el-card>
   </div>
 </template>
 
 <script>
+import New from '@/components/ui/New'
 import Panel from '@/components/ui/Panel'
 // mixin
 import mixinIndex from '@/components/mixin/index'
@@ -21,6 +24,7 @@ export default {
     }
   },
   components: {
+    [New.name]: New,
     [Panel.name]: Panel
   }
 }
