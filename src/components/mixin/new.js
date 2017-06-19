@@ -22,7 +22,7 @@ export default {
   methods: {
     _handlerCreate (formModel) {
       console.log('submit form: ', formModel)
-      let api = reverseApi(this.actionInfo.api, this.$route.params)
+      let api = reverseApi(this.actionInfo.form.api, this.$route.params)
       this.$api[api.method](api.path, formModel).then((res) => {
         this.dialogFormVisible = false
         this.handler && this.handler()

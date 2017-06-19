@@ -19,6 +19,7 @@ const controllers = {
     show: {
       router: {path: '/users/:id', name: 'UserEdit', meta: {auth: true, actionView: 'Show', navIndex: 'User'}},
       api: {method: 'get', path: '/api/v1/users/:id'},
+      operations: [{label: '编辑', type: 'default', actionView: 'Edit', linkTo: 'users.edit'}],
       itemKey: 'user',
       columns: [
         {prop: 'id', label: 'id', labelStyle: {width: '100px'}},
@@ -29,11 +30,11 @@ const controllers = {
     },
     new: {
       dialog: {size: 'large', closeOnClickModal: false, title: '新增用户'},
-      api: {method: 'post', path: '/api/v1/users'},
       form: {
         labelWidth: null, // 100px
+        api: {method: 'post', path: '/api/v1/users'},
         columns: [
-          {prop: 'username', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '请输入用户名', disabled: false, autoComplate: false, minLength: 0, maxLength: 30, autoFocus: true},
+          {prop: 'username', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '请输入用户名', disabled: false, autoComplate: 'off', minLength: 0, maxLength: 30, autoFocus: true},
           {prop: 'password', label: '密码', control: 'input', type: 'password'},
           {prop: 'phone', label: '手机号', control: 'input', default: '', placeholder: '请输入手机号'},
           {prop: 'gender', label: '性别', control: 'select', default: '', placeholder: '选择性别', multiple: false, options: [{label: '男', value: 0}, {label: '女', value: 1}], clearable: false},
