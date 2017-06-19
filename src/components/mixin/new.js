@@ -32,6 +32,11 @@ export default {
     }
   },
   mounted () {
-    this.actionInfo = getLinkToObj(this.operation.linkTo)
+    if (this.operation) {
+      this.actionInfo = getLinkToObj(this.operation.linkTo)
+    } else {
+      console.log(this.$route)
+      this.actionInfo = this.$route.meta.actionInfo
+    }
   }
 }

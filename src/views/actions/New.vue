@@ -1,15 +1,13 @@
 <template>
   <div class="ui-new" v-if="actionInfo">
-    <el-button :type="operation.type" @click="dialogFormVisible = true">{{operation.label}}</el-button>
-    <el-dialog :size="actionInfo.dialog.size" :title="actionInfo.dialog.title" :close-on-click-modal="actionInfo.dialog.closeOnClickModal" v-model="dialogFormVisible">
-      <s-form :form="actionInfo.form" :formModel="formModel" :handler="handlerCreate"></s-form>
-    </el-dialog>
+    <el-button v-if="operation" :type="operation.type" @click="newClick()">{{operation.label}}</el-button>
+    <new-panel :operation="operation" :formModel="formModel" :handler="handlerCreate" :actionInfo="actionInfo" :dialogFormVisible="dialogFormVisible"></new-panel>
   </div>
 </template>
 
 <script>
-import { Dialog } from 'element-ui'
-import SForm from '@/components/shared/SForm'
+import { getLinkToObj } from '@/libs/schemaTool'
+import NewPanel from '@/components/shared/NewPanel'
 // mixin
 import mixinNew from '@/components/mixin/new'
 export default {
@@ -23,11 +21,18 @@ export default {
   methods: {
     handlerCreate (formModel) {
       this._handlerCreate(formModel)
+    },
+    newClick () {
+      if (this.operation.isDialog) {
+        this.dialogFormVisible = true
+      } else {
+        let linkTo = getLinkToObj(this.operation.linkTo)
+        this.$router.push({name: linkTo.router.name, params: this.$route.params})
+      }
     }
   },
   components: {
-    [Dialog.name]: Dialog,
-    [SForm.name]: SForm
+    [NewPanel.name]: NewPanel
   }
 }
 </script>

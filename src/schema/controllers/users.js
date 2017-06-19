@@ -3,7 +3,7 @@ module.exports = {
     router: {path: '/users', name: 'User', meta: { auth: true, actionView: 'Index', navIndex: 'User' }},
     api: {method: 'get', path: '/api/v1/users'},
     itemsKey: 'items', // res.data.items
-    operations: [{label: '新增', type: 'default', actionView: 'New', linkTo: 'users.new'}],
+    operations: [{label: '新增', type: 'default', actionView: 'New', linkTo: 'users.new', isDialog: false}],
     columns: [
       {prop: 'id', type: 'Number', label: '#', width: '80px', fixed: 'left'},
       {prop: 'username', type: 'String', label: 'username'},
@@ -15,19 +15,9 @@ module.exports = {
       ]}
     ]
   },
-  show: {
-    router: {path: '/users/:id', name: 'UserEdit', meta: {auth: true, actionView: 'Show', navIndex: 'User'}},
-    api: {method: 'get', path: '/api/v1/users/:id'},
-    itemKey: 'user',
-    operations: [{label: '编辑', type: 'default', actionView: 'Edit', linkTo: 'users.edit'}],
-    columns: [
-      {prop: 'id', label: 'id', labelStyle: {width: '100px'}},
-      {prop: 'username', label: '用户名', labelStyle: {width: '100px'}},
-      {prop: 'mobile', label: '电话', labelStyle: {width: '100px'}},
-      {prop: 'email', label: '邮箱', labelStyle: {width: '100px'}}
-    ]
-  },
   new: {
+    router: {path: '/users/new', name: 'UserNew', meta: {auth: true, actionView: 'New', navIndex: 'User'}},
+    title: '新增用户',
     dialog: {size: 'large', closeOnClickModal: false, title: '新增用户'},
     form: {
       labelWidth: null, // 100px
@@ -48,6 +38,18 @@ module.exports = {
         {prop: 'desc', label: '描述', control: 'input', default: '', type: 'textarea', autosize: true, placeholder: '请输入描述', disabled: false},
       ]
     }
+  },
+  show: {
+    router: {path: '/users/:id', name: 'UserEdit', meta: {auth: true, actionView: 'Show', navIndex: 'User'}},
+    api: {method: 'get', path: '/api/v1/users/:id'},
+    itemKey: 'user',
+    operations: [{label: '编辑', type: 'default', actionView: 'Edit', linkTo: 'users.edit'}],
+    columns: [
+      {prop: 'id', label: 'id', labelStyle: {width: '100px'}},
+      {prop: 'username', label: '用户名', labelStyle: {width: '100px'}},
+      {prop: 'mobile', label: '电话', labelStyle: {width: '100px'}},
+      {prop: 'email', label: '邮箱', labelStyle: {width: '100px'}}
+    ]
   },
   edit: {
     dialog: {size: 'large', closeOnClickModal: false, title: '编辑用户'},
