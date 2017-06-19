@@ -1,4 +1,4 @@
-import { getControllerActionColumnOperationLinkTo, reverseApi } from '@/libs/schemaTool'
+import { getLinkToObj, reverseApi } from '@/libs/schemaTool'
 export default {
   data () {
     return {
@@ -26,7 +26,7 @@ export default {
     }
   },
   mounted () {
-    this.actionInfo = getControllerActionColumnOperationLinkTo(this.operation)
+    this.actionInfo = getLinkToObj(this.operation.linkTo)
     this.fetchData()
   }
 }

@@ -1,7 +1,7 @@
 import schema from '../schema'
-export const getControllerActionColumnOperationLinkTo = (operation) => {
-  if (operation.linkTo) {
-    let linkToArr = operation.linkTo.split('.')
+export const getLinkToObj = (linkTo) => {
+  if (linkTo) {
+    let linkToArr = linkTo.split('.')
     let obj = schema.controllers
     linkToArr.forEach((key) => {
       obj = obj[key]

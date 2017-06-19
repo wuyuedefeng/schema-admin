@@ -14,7 +14,7 @@
 
 <script>
 import { Table, TableColumn } from 'element-ui'
-import { getControllerActionColumnOperationLinkTo } from '@/libs/schemaTool'
+import { getLinkToObj } from '@/libs/schemaTool'
 export default {
   name: 'IndexPanel',
   props: ['items', 'loading', 'fetchData', 'actionInfo'],
@@ -27,7 +27,7 @@ export default {
       return column['falseValue'] || ''
     },
     handleOperation (column, operation, item) {
-      let linkTo = getControllerActionColumnOperationLinkTo(operation)
+      let linkTo = getLinkToObj(operation.linkTo)
       this.$router.push({name: linkTo.router.name, params: item})
     }
   },
