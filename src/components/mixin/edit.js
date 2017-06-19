@@ -27,7 +27,6 @@ export default {
   },
   mounted () {
     this.actionInfo = getControllerActionColumnOperationLinkTo(this.operation)
-    console.log(111111)
     this.fetchData()
   }
 }

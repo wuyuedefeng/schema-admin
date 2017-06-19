@@ -6,14 +6,14 @@
       </div>
     </div>
     <el-card>
-      <panel :items="items" :loading="loading" :fetchData="fetchData" :actionInfo="actionInfo"></panel>
+      <index-panel :items="items" :loading="loading" :fetchData="fetchData" :actionInfo="actionInfo"></index-panel>
     </el-card>
   </div>
 </template>
 
 <script>
-import New from '@/components/actions/New'
-import Panel from '@/components/shared/Panel'
+import New from './New'
+import IndexPanel from '@/components/shared/IndexPanel'
 // mixin
 import mixinIndex from '@/components/mixin/index'
 export default {
@@ -25,7 +25,7 @@ export default {
   },
   components: {
     [New.name]: New,
-    [Panel.name]: Panel
+    [IndexPanel.name]: IndexPanel
   }
 }
 </script>

@@ -16,7 +16,7 @@
 import { Table, TableColumn } from 'element-ui'
 import { getControllerActionColumnOperationLinkTo } from '@/libs/schemaTool'
 export default {
-  name: 'Panel',
+  name: 'IndexPanel',
   props: ['items', 'loading', 'fetchData', 'actionInfo'],
   methods: {
     getBooleanVal (item, column) {

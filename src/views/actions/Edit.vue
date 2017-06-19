@@ -23,9 +23,7 @@ export default {
   },
   methods: {
     fetchData () {
-      console.log(111111222)
       let api = reverseApi(this.actionInfo.api, this.$route.params)
-      console.log(api)
       this._fetchData(this.$api[api.method](api.path))
     },
     handlerUpdate (formModel) {

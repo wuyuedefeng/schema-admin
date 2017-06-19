@@ -23,10 +23,11 @@
 </template>
 
 <script>
-import mixinShow from '@/components/mixin/show'
 import { reverseApi } from '@/libs/schemaTool'
 import { Row, Col } from 'element-ui'
-import Edit from '@/components/actions/Edit'
+import Edit from './Edit'
+// mixin
+import mixinShow from '@/components/mixin/show'
 export default {
   mixins: [mixinShow],
   methods: {
