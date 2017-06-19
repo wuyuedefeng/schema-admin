@@ -3,7 +3,7 @@ module.exports = {
     router: {path: '/users', name: 'User', meta: { auth: true, actionView: 'Index', navIndex: 'User' }},
     api: {method: 'get', path: '/api/v1/users'},
     itemsKey: 'items', // res.data.items
-    operations: [{label: '新增', type: 'default', actionView: 'New', linkTo: 'users.new', isDialog: false}],
+    operations: [{label: '新增', type: 'default', actionView: 'New', linkTo: 'users.new', isDialog: true}],
     columns: [
       {prop: 'id', type: 'Number', label: '#', width: '80px', fixed: 'left'},
       {prop: 'username', type: 'String', label: 'username'},
@@ -41,6 +41,7 @@ module.exports = {
   },
   show: {
     router: {path: '/users/:id', name: 'UserEdit', meta: {auth: true, actionView: 'Show', navIndex: 'User'}},
+    title: '用户详情',
     api: {method: 'get', path: '/api/v1/users/:id'},
     itemKey: 'user',
     operations: [{label: '编辑', type: 'default', actionView: 'Edit', linkTo: 'users.edit'}],

@@ -3,12 +3,14 @@
     <el-dialog v-if="operation && operation.isDialog" :size="actionInfo.dialog.size" :title="actionInfo.dialog.title" :close-on-click-modal="actionInfo.dialog.closeOnClickModal" v-model="dialogVisible">
       <s-form :form="actionInfo.form" :formModel="formModel" :handler="handler"></s-form>
     </el-dialog>
-    <el-card v-else-if="!operation">
-      <div slot="header">
+    <div v-else-if="!operation">
+      <div class="panel-header">
         <span>{{actionInfo.title}}</span>
       </div>
-      <s-form :form="actionInfo.form" :formModel="formModel" :handler="handler"></s-form>
-    </el-card>
+      <el-card>
+        <s-form :form="actionInfo.form" :formModel="formModel" :handler="handler"></s-form>
+      </el-card>
+    </div>
   </div>
 </template>
 
