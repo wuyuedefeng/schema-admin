@@ -1,21 +1,18 @@
 <template>
-  <div class="ui-new" v-if="actionInfo">
-    <el-button :type="operation.type" @click="dialogFormVisible = true">{{operation.label}}</el-button>
-    <el-dialog :size="actionInfo.dialog.size" :title="actionInfo.dialog.title" :close-on-click-modal="actionInfo.dialog.closeOnClickModal" v-model="dialogFormVisible">
-      <s-form :form="actionInfo.form" :formModel="formModel" :handler="handlerUpdate"></s-form>
-    </el-dialog>
+  <div v-if="actionInfo">
+    <el-button v-if="operation" :type="operation.type" @click="editClick()">{{operation.label}}</el-button>
+    <edit-panel :operation="operation" :formModel="formModel" :handler="handlerUpdate" :actionInfo="actionInfo" :dialogFormVisible="dialogFormVisible"></edit-panel>
   </div>
 </template>
 
 <script>
-import { Dialog } from 'element-ui'
-import { reverseApi } from '@/libs/schemaTool'
-import SForm from '@/components/shared/SForm'
+import { reverseApi, getLinkToObj } from '@/libs/schemaTool'
+import EditPanel from '@/components/shared/EditPanel'
 // mixin
 import mixinEdit from '@/components/mixin/edit'
 export default {
   mixins: [mixinEdit],
-  props: ['operation', 'handle'],
+  props: ['form', 'operation', 'handle'],
   name: 'Edit',
   data () {
     return {
@@ -28,17 +25,23 @@ export default {
     },
     handlerUpdate (formModel) {
       this._handlerUpdate(formModel)
+    },
+    editClick () {
+      console.log(this.operation)
+      if (this.operation.isDialog) {
+        this.dialogFormVisible = true
+      } else {
+        let linkTo = getLinkToObj(this.operation.linkTo)
+        console.log(linkTo, 2, linkTo.router.name, this.$route.params)
+        this.$router.push({name: linkTo.router.name, params: this.$route.params})
+      }
     }
   },
   components: {
-    [Dialog.name]: Dialog,
-    [SForm.name]: SForm
+    [EditPanel.name]: EditPanel
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.ui-new {
-
-}
 </style>

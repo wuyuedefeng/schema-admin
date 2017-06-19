@@ -40,11 +40,11 @@ module.exports = {
     }
   },
   show: {
-    router: {path: '/users/:id', name: 'UserEdit', meta: {auth: true, actionView: 'Show', navIndex: 'User'}},
+    router: {path: '/users/:id', name: 'UserShow', meta: {auth: true, actionView: 'Show', navIndex: 'User'}},
     title: '用户详情',
     api: {method: 'get', path: '/api/v1/users/:id'},
     itemKey: 'user',
-    operations: [{label: '编辑', type: 'default', actionView: 'Edit', linkTo: 'users.edit'}],
+    operations: [{label: '编辑', type: 'default', actionView: 'Edit', linkTo: 'users.edit', isDialog: false}],
     columns: [
       {prop: 'id', label: 'id', labelStyle: {width: '100px'}},
       {prop: 'username', label: '用户名', labelStyle: {width: '100px'}},
@@ -53,6 +53,8 @@ module.exports = {
     ]
   },
   edit: {
+    router: {path: '/users/:id/edit', name: 'UserEdit', meta: {auth: true, actionView: 'Edit', navIndex: 'User'}},
+    title: '编辑用户',
     dialog: {size: 'large', closeOnClickModal: false, title: '编辑用户'},
     api: {method: 'get', path: '/api/v1/users/:id'},
     itemKey: 'user', // res.data.items

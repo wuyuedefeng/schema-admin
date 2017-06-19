@@ -7,6 +7,13 @@ export default {
       formModel: {}
     }
   },
+  watch: {
+    dialogFormVisible (newVal) {
+      if (newVal && this.operation && this.operation.isDialog) {
+        this.fetchData()
+      }
+    }
+  },
   methods: {
     _fetchData (promise) {
       promise.then((res) => {
@@ -26,7 +33,11 @@ export default {
     }
   },
   mounted () {
-    this.actionInfo = getLinkToObj(this.operation.linkTo)
-    this.fetchData()
+    if (this.operation) {
+      this.actionInfo = getLinkToObj(this.operation.linkTo)
+    } else {
+      this.actionInfo = this.$route.meta.actionInfo
+      this.fetchData()
+    }
   }
 }

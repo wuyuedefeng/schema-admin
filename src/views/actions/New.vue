@@ -1,5 +1,5 @@
 <template>
-  <div class="ui-new" v-if="actionInfo">
+  <div v-if="actionInfo">
     <el-button v-if="operation" :type="operation.type" @click="newClick()">{{operation.label}}</el-button>
     <new-panel :operation="operation" :formModel="formModel" :handler="handlerCreate" :actionInfo="actionInfo" :dialogFormVisible="dialogFormVisible"></new-panel>
   </div>
@@ -38,7 +38,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.ui-new {
-
-}
 </style>
