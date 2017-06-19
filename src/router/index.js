@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import schema from '../schema'
 
 Vue.use(Router)
-let controllers = schema.views.controllers
+let controllers = schema.controllers
 let actionRoutes = []
 Object.keys(controllers).forEach((key) => {
   let controller = controllers[key]

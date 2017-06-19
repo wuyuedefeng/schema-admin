@@ -3,8 +3,8 @@
     <div class="toolbar">
       <i :class="{'el-icon-caret-left': !isCloseMenu, 'el-icon-caret-right': isCloseMenu}" class="fr" @click="toggleMenu"></i>
     </div>
-    <el-menu v-if="!isCloseMenu" class="menu" :default-active="activeIndex" @open="handleOpen" @close="handleClose" @select="handleSelect" theme="dark" :style="schema.views.dashboard.leftNavMenu.style">
-      <div v-for="(item,index) in schema.views.dashboard.leftNavMenu.menus" :key="index">
+    <el-menu v-if="!isCloseMenu" class="menu" :default-active="activeIndex" @open="handleOpen" @close="handleClose" @select="handleSelect" theme="dark" :style="schema.controllers.dashboard.leftNavMenu.style">
+      <div v-for="(item,index) in schema.controllers.dashboard.leftNavMenu.menus" :key="index">
       <el-submenu v-if="item.type==='submenu'" :index="item.index">
        <template slot="title"><i v-if="item.icon" :class="item.icon"></i>{{item.title}}</template>
        <div v-for="(item,index) in item.items" :key="index">

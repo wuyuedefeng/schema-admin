@@ -1,6 +1,6 @@
 <template>
   <el-menu theme="dark" :default-active="activeIndex" mode="horizontal" @select="handleSelect" class="TopNavMenu clearfix">
-    <div v-for="(items, key) in schema.views.dashboard.topNavMenu" :key=key>
+    <div v-for="(items, key) in schema.controllers.dashboard.topNavMenu" :key=key>
       <div :class="key">
         <div v-for="item in items">
             <el-menu-item :index="item.index" v-if="item.type==='menu-item'" @click="goRoute(item.route)">{{item.title}}</el-menu-item>
