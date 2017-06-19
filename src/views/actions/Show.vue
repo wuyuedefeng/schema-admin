@@ -1,7 +1,9 @@
 <template>
   <div v-if="actionInfo">
     <div class="panel-header">
-      <el-button>编辑</el-button>
+      <div v-for="(operation,index) in actionInfo.operations" :key="index">
+        <edit v-if="operation.actionView === 'Edit'" :operation="operation" :handle="fetchData"></edit>
+      </div>
     </div>
     <el-card>
       <el-row :gutter="20">
@@ -24,6 +26,7 @@
 import mixinShow from '@/components/mixin/show'
 import { reverseApi } from '@/libs/schemaTool'
 import { Row, Col } from 'element-ui'
+import Edit from '@/components/actions/Edit'
 export default {
   mixins: [mixinShow],
   methods: {
@@ -34,7 +37,8 @@ export default {
   },
   components: {
     [Row.name]: Row,
-    [Col.name]: Col
+    [Col.name]: Col,
+    [Edit.name]: Edit
   }
 }
 </script>
