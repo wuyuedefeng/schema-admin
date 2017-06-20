@@ -14,6 +14,15 @@ export default {
   name: 'Show',
   mixins: [mixinShow],
   props: ['operation', 'outItem'],
+  computed: {
+    calcParams () {
+      let params = this.$route.params
+      if (this.outItem) {
+        Object.assign(params, this.outItem)
+      }
+      return params
+    }
+  },
   methods: {
     fetchData () {
       if (this.opt.dialogInfoVisible && this.operation && this.operation.isDialog) {
@@ -21,7 +30,7 @@ export default {
         let api = reverseApi(linkTo.api, this.outItem)
         this._fetchData(this.$api[api.method](api.path))
       } else if (!this.operation) {
-        let api = reverseApi(this.actionInfo.api, this.$route.params)
+        let api = reverseApi(this.actionInfo.api, this.calcParams)
         this._fetchData(this.$api[api.method](api.path))
       }
     },

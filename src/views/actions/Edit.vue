@@ -18,13 +18,18 @@ export default {
     return {
     }
   },
-  methods: {
-    fetchData () {
+  computed: {
+    calcParams () {
       let params = this.$route.params
       if (this.outItem) {
         Object.assign(params, this.outItem)
       }
-      let api = reverseApi(this.actionInfo.api, params)
+      return params
+    }
+  },
+  methods: {
+    fetchData () {
+      let api = reverseApi(this.actionInfo.api, this.calcParams)
       this._fetchData(this.$api[api.method](api.path))
     },
     handlerUpdate (formModel) {
@@ -36,8 +41,8 @@ export default {
         this.opt.dialogFormVisible = true
       } else {
         let linkTo = getLinkToObj(this.operation.linkTo)
-        console.log(linkTo, 2, linkTo.router.name, this.$route.params)
-        this.$router.push({name: linkTo.router.name, params: this.$route.params})
+        console.log(linkTo, 2, linkTo.router.name, this.calcParams)
+        this.$router.push({name: linkTo.router.name, params: this.calcParams})
       }
     }
   },
