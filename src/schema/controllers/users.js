@@ -10,7 +10,7 @@ module.exports = {
       {prop: 'isActive', type: 'Boolean', label: 'isActive', trueValue: '是', falseValue: '否'},
       {type: 'Operation', label: '操作', width: "200", fixed: 'right', operations: [
         // {label: '详情', type: 'default', size: "small", icon: 'info', actionView: 'Show', linkTo: 'users.show', isDialog: false},
-        {label: '编辑', type: 'default', icon: 'edit', size: 'small', actionView: 'Edit', linkTo: 'users.edit', isDialog: false},
+        {label: '编辑', type: 'default', icon: 'edit', size: 'small', actionView: 'Edit', linkTo: 'users.edit', isDialog: true},
         {label: '删除', type: 'danger', icon: 'delete', size: 'small', actionView: 'Delete', linkTo: 'users.delete'}
       ]}
     ]
@@ -56,7 +56,7 @@ module.exports = {
   edit: {
     router: {path: '/users/:id/edit', name: 'UserEdit', meta: {auth: true, actionView: 'Edit', navIndex: 'User'}},
     title: '编辑用户',
-    dialog: {size: 'large', closeOnClickModal: false, title: '编辑用户', modal: false},
+    dialog: {size: 'large', closeOnClickModal: false, title: '编辑用户', modal: true},
     api: {method: 'get', path: '/api/v1/users/:id'},
     itemKey: 'user', // res.data.items
     form: {
