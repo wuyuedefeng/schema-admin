@@ -1,7 +1,7 @@
 <template>
   <div v-if="actionInfo">
     <el-button v-if="operation" :type="operation.type" @click="editClick()">{{operation.label}}</el-button>
-    <edit-panel :operation="operation" :formModel="formModel" :handler="handlerUpdate" :actionInfo="actionInfo" :dialogFormVisible="dialogFormVisible"></edit-panel>
+    <edit-panel :operation="operation" :formModel="formModel" :handler="handlerUpdate" :actionInfo="actionInfo" :opt="opt"></edit-panel>
   </div>
 </template>
 
@@ -29,7 +29,7 @@ export default {
     editClick () {
       console.log(this.operation)
       if (this.operation.isDialog) {
-        this.dialogFormVisible = true
+        this.opt.dialogFormVisible = true
       } else {
         let linkTo = getLinkToObj(this.operation.linkTo)
         console.log(linkTo, 2, linkTo.router.name, this.$route.params)

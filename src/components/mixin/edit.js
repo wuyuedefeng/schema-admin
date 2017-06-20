@@ -2,13 +2,15 @@ import { getLinkToObj, reverseApi } from '@/libs/schemaTool'
 export default {
   data () {
     return {
-      dialogFormVisible: false,
+      opt: {
+        dialogFormVisible: false
+      },
       actionInfo: null,
       formModel: {}
     }
   },
   watch: {
-    dialogFormVisible (newVal) {
+    'opt.dialogFormVisible': function (newVal) {
       if (newVal && this.operation && this.operation.isDialog) {
         this.fetchData()
       }
@@ -25,7 +27,7 @@ export default {
       console.log('submit edit form: ', formModel)
       let api = reverseApi(this.actionInfo.form.api, this.$route.params)
       this.$api[api.method](api.path, formModel).then((res) => {
-        this.dialogFormVisible = false
+        this.opt.dialogFormVisible = false
         this.handler && this.handler()
       }).catch((err) => {
         console.log(err)

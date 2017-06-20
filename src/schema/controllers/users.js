@@ -9,7 +9,7 @@ module.exports = {
       {prop: 'username', type: 'String', label: 'username'},
       {prop: 'isActive', type: 'Boolean', label: 'isActive', trueValue: '是', falseValue: '否'},
       {type: 'Operation', label: '操作', width: "300", fixed: 'right', operations: [
-        {label: '详情', type: 'default', icon: 'info', actionView: 'Show', linkTo: 'users.show', isDialog: true}
+        {label: '详情', type: 'default', icon: 'info', actionView: 'Show', linkTo: 'users.show', isDialog: false}
         // {label: '编辑', type: 'default', icon: 'edit', action: 'Edit'},
         // {label: '删除', type: 'danger', icon: 'delete', action: 'Delete'}
       ]}
@@ -45,7 +45,7 @@ module.exports = {
     dialog: {size: 'large', closeOnClickModal: false, title: '用户详情'},
     api: {method: 'get', path: '/api/v1/users/:id'},
     itemKey: 'user',
-    operations: [{label: '编辑', type: 'default', actionView: 'Edit', linkTo: 'users.edit', isDialog: false}],
+    operations: [{label: '编辑', type: 'default', actionView: 'Edit', linkTo: 'users.edit', isDialog: true}],
     columns: [
       {prop: 'id', label: 'id', labelStyle: {width: '100px'}},
       {prop: 'username', label: '用户名', labelStyle: {width: '100px'}},
