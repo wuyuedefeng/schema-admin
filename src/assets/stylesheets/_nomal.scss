@@ -14,3 +14,8 @@
 .clearfix:after {clear: both;}
 .clearfix {clear: both;zoom: 1;}
 /* 浮动结束 */
+
+/* 重置element-ui no modal dialog */
+.el-dialog__wrapper.no-modal-dialog .el-dialog {
+  box-shadow: 0 0 100px 100px rgba(50,50,50, 0.5);
+}

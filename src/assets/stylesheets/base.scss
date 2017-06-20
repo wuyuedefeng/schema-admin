@@ -18,7 +18,6 @@ html {
 }
 
 /* 弹框遮罩层 */
-.dialog-modal {
-  opacity: .5;
-  background: #000;
+.no-modal-dialog-content {
+  border: 10px solid red;
 }
