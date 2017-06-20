@@ -1,7 +1,7 @@
 <template>
   <div v-if="actionInfo">
     <el-button v-if="operation" :type="operation.type" @click="showClick">{{operation.label}}</el-button>
-    <show-panel :actionInfo="actionInfo" :operation="operation" :item="item" :fetchData="fetchData" :dialogFormVisible="dialogFormVisible"></show-panel>
+    <show-panel :actionInfo="actionInfo" :operation="operation" :item="item" :fetchData="fetchData" :opt="opt"></show-panel>
   </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
   props: ['operation', 'outItem'],
   methods: {
     fetchData () {
-      if (this.dialogFormVisible && this.operation && this.operation.isDialog) {
+      if (this.opt.dialogInfoVisible && this.operation && this.operation.isDialog) {
         let linkTo = getLinkToObj(this.operation.linkTo)
         let api = reverseApi(linkTo.api, this.outItem)
         this._fetchData(this.$api[api.method](api.path))
@@ -27,7 +27,7 @@ export default {
     },
     showClick () {
       if (this.operation && this.operation.isDialog) {
-        this.dialogFormVisible = true
+        this.opt.dialogInfoVisible = true
       } else {
         let linkTo = getLinkToObj(this.operation.linkTo)
         console.log(linkTo, 55)

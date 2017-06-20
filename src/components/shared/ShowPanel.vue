@@ -1,7 +1,9 @@
 <template>
   <div>
-    <el-dialog v-if="operation && operation.isDialog" :size="actionInfo.dialog.size" :title="actionInfo.dialog.title" :close-on-click-modal="actionInfo.dialog.closeOnClickModal" v-model="dialogVisible">
-      <s-info :actionInfo="actionInfo" :item="item"></s-info>
+    <el-dialog v-if="operation && operation.isDialog" :size="actionInfo.dialog.size" :title="actionInfo.dialog.title" :close-on-click-modal="actionInfo.dialog.closeOnClickModal" v-model="opt.dialogInfoVisible">
+      <div style="position: relative; z-index: 20001;">
+        <s-info :actionInfo="actionInfo" :item="item"></s-info>
+      </div>
     </el-dialog>
     <div v-else-if="!operation">
       <div class="panel-header">
@@ -27,15 +29,9 @@ import Edit from '@/views/actions/Edit'
 import SInfo from './SInfo'
 export default {
   name: 'ShowPanel',
-  props: ['actionInfo', 'operation', 'item', 'fetchData', 'dialogFormVisible'],
+  props: ['actionInfo', 'operation', 'item', 'fetchData', 'opt'],
   data () {
     return {
-      dialogVisible: this.dialogFormVisible
-    }
-  },
-  watch: {
-    dialogFormVisible (newVal) {
-      this.dialogVisible = newVal
     }
   },
   components: {

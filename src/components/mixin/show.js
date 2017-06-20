@@ -2,9 +2,18 @@ import { getLinkToObj } from '@/libs/schemaTool'
 export default {
   data () {
     return {
-      dialogFormVisible: false,
+      opt: {
+        dialogInfoVisible: false
+      },
       item: null,
       actionInfo: null
+    }
+  },
+  watch: {
+    'opt.dialogInfoVisible': function (newVal) {
+      if (newVal && this.operation && this.operation.isDialog) {
+        this.fetchData()
+      }
     }
   },
   methods: {

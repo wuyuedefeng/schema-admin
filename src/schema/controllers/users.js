@@ -9,7 +9,7 @@ module.exports = {
       {prop: 'username', type: 'String', label: 'username'},
       {prop: 'isActive', type: 'Boolean', label: 'isActive', trueValue: '是', falseValue: '否'},
       {type: 'Operation', label: '操作', width: "300", fixed: 'right', operations: [
-        {label: '详情', type: 'default', icon: 'info', actionView: 'Show', linkTo: 'users.show', isDialog: false}
+        {label: '详情', type: 'default', icon: 'info', actionView: 'Show', linkTo: 'users.show', isDialog: true}
         // {label: '编辑', type: 'default', icon: 'edit', action: 'Edit'},
         // {label: '删除', type: 'danger', icon: 'delete', action: 'Delete'}
       ]}
