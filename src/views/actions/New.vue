@@ -1,7 +1,7 @@
 <template>
   <div v-if="actionInfo">
     <el-button v-if="operation" :type="operation.type" @click="newClick()">{{operation.label}}</el-button>
-    <new-panel :operation="operation" :formModel="formModel" :handler="handlerCreate" :actionInfo="actionInfo" :dialogFormVisible="dialogFormVisible"></new-panel>
+    <new-panel :operation="operation" :formModel="formModel" :handler="handlerCreate" :actionInfo="actionInfo" :opt="opt"></new-panel>
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
     },
     newClick () {
       if (this.operation.isDialog) {
-        this.dialogFormVisible = true
+        this.opt.dialogFormVisible = true
       } else {
         let linkTo = getLinkToObj(this.operation.linkTo)
         this.$router.push({name: linkTo.router.name, params: this.$route.params})
