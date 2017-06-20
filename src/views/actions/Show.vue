@@ -3,7 +3,8 @@
     <div class="panel-header">
       <span>{{actionInfo.title}}</span>
     </div>
-    <el-card>
+    <show-panel :actionInfo="actionInfo" :item="item" :fetchData="fetchData"></show-panel>
+    <!-- <el-card>
       <div slot="header" class="clearfix">
         <ul class="clearfix">
           <li v-for="(operation,index) in actionInfo.operations" :key="index" class="pull-left" style="margin-right: 15px;">
@@ -23,14 +24,13 @@
           </div>
         </el-col>
       </el-row>
-    </el-card>
+    </el-card> -->
   </div>
 </template>
 
 <script>
 import { reverseApi } from '@/libs/schemaTool'
-import { Row, Col } from 'element-ui'
-import Edit from './Edit'
+import ShowPanel from '@/components/shared/ShowPanel'
 // mixin
 import mixinShow from '@/components/mixin/show'
 export default {
@@ -42,36 +42,10 @@ export default {
     }
   },
   components: {
-    [Row.name]: Row,
-    [Col.name]: Col,
-    [Edit.name]: Edit
+    [ShowPanel.name]: ShowPanel
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.col-item {
-  .column {
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
-    box-sizing: content-box;
-    margin: 10px 0;
-    min-height: 40px;
-    border: 2px solid #f2f2f2;
-    .label {
-      text-align: center;
-      background: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .value {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-}
 </style>
