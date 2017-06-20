@@ -1,6 +1,6 @@
 <template>
   <div v-if="actionInfo">
-    <el-button v-if="operation" :type="operation.type" @click="showClick">{{operation.label}}</el-button>
+    <el-button v-if="operation" :type="operation.type" :size="operation.size" @click="showClick">{{operation.label}}</el-button>
     <show-panel :actionInfo="actionInfo" :operation="operation" :item="item" :fetchData="fetchData" :opt="opt"></show-panel>
   </div>
 </template>

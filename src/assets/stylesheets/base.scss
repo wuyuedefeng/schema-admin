@@ -12,3 +12,9 @@ html {
   justify-content: space-between;
   padding: 10px 0;
 }
+
+/* 弹框遮罩层 */
+.dialog-modal {
+  opacity: .5;
+  background: #000;
+}

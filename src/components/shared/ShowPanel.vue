@@ -1,9 +1,7 @@
 <template>
   <div>
     <el-dialog v-if="operation && operation.isDialog" :size="actionInfo.dialog.size" :title="actionInfo.dialog.title" :close-on-click-modal="actionInfo.dialog.closeOnClickModal" v-model="opt.dialogInfoVisible">
-      <div style="position: relative; z-index: 20001;">
-        <s-info :actionInfo="actionInfo" :item="item"></s-info>
-      </div>
+      <s-info :actionInfo="actionInfo" :item="item"></s-info>
     </el-dialog>
     <div v-else-if="!operation">
       <div class="panel-header">
