@@ -18,7 +18,7 @@ module.exports = {
   new: {
     router: {path: '/users/new', name: 'UserNew', meta: {auth: true, actionView: 'New', navIndex: 'User'}},
     title: '新增用户',
-    dialog: {size: 'large', closeOnClickModal: false, title: '新增用户'},
+    dialog: {size: 'large', closeOnClickModal: false, title: '新增用户', modal: true},
     form: {
       labelWidth: null, // 100px
       api: {method: 'post', path: '/api/v1/users'},
@@ -42,7 +42,7 @@ module.exports = {
   show: {
     title: '用户详情',
     router: {path: '/users/:id', name: 'UserShow', meta: {auth: true, actionView: 'Show', navIndex: 'User'}},
-    dialog: {size: 'large', closeOnClickModal: true, title: '用户详情'},
+    dialog: {size: 'large', closeOnClickModal: true, title: '用户详情', modal: false},
     api: {method: 'get', path: '/api/v1/users/:id'},
     itemKey: 'user',
     operations: [{label: '编辑', type: 'default', actionView: 'Edit', linkTo: 'users.edit', isDialog: true}],

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-dialog v-if="operation && operation.isDialog" :size="actionInfo.dialog.size" :title="actionInfo.dialog.title" :close-on-click-modal="actionInfo.dialog.closeOnClickModal" v-model="opt.dialogFormVisible">
+    <el-dialog v-if="operation && operation.isDialog" :size="actionInfo.dialog.size" :title="actionInfo.dialog.title" :close-on-click-modal="actionInfo.dialog.closeOnClickModal" v-model="opt.dialogFormVisible" :modal="actionInfo.dialog.modal">
       <s-form :form="actionInfo.form" :formModel="formModel" :handler="handler"></s-form>
     </el-dialog>
     <div v-else-if="!operation">
