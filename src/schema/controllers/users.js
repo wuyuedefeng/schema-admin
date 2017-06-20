@@ -5,12 +5,12 @@ module.exports = {
     itemsKey: 'items', // res.data.items
     operations: [{label: '新增', type: 'default', actionView: 'New', linkTo: 'users.new', isDialog: true}],
     columns: [
-      {prop: 'id', type: 'Number', label: '#', width: '80px', fixed: 'left'},
+      {prop: 'id', type: 'Number', label: '#', width: '80px', fixed: null, operation: {labelProp: 'id', type: 'text', size: "small", icon: 'info', actionView: 'Show', linkTo: 'users.show', isDialog: true }},
       {prop: 'username', type: 'String', label: 'username'},
       {prop: 'isActive', type: 'Boolean', label: 'isActive', trueValue: '是', falseValue: '否'},
-      {type: 'Operation', label: '操作', width: "300", fixed: null, operations: [
-        {label: '详情', type: 'default', size: "small", icon: 'info', actionView: 'Show', linkTo: 'users.show', isDialog: true}
-        // {label: '编辑', type: 'default', icon: 'edit', action: 'Edit'},
+      {type: 'Operation', label: '操作', width: "300", fixed: 'right', operations: [
+        // {label: '详情', type: 'default', size: "small", icon: 'info', actionView: 'Show', linkTo: 'users.show', isDialog: false},
+        {label: '编辑', type: 'default', icon: 'edit', size: "small", actionView: 'Edit', linkTo: 'users.edit', isDialog: true}
         // {label: '删除', type: 'danger', icon: 'delete', action: 'Delete'}
       ]}
     ]
@@ -56,7 +56,7 @@ module.exports = {
   edit: {
     router: {path: '/users/:id/edit', name: 'UserEdit', meta: {auth: true, actionView: 'Edit', navIndex: 'User'}},
     title: '编辑用户',
-    dialog: {size: 'large', closeOnClickModal: false, title: '编辑用户'},
+    dialog: {size: 'large', closeOnClickModal: false, title: '编辑用户', modal: false},
     api: {method: 'get', path: '/api/v1/users/:id'},
     itemKey: 'user', // res.data.items
     form: {

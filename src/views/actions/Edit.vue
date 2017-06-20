@@ -1,6 +1,6 @@
 <template>
   <div v-if="actionInfo">
-    <el-button v-if="operation" :type="operation.type" @click="editClick()">{{operation.label}}</el-button>
+    <el-button v-if="operation" :type="operation.type" :size="operation.size" :icon="operation.icon" @click="editClick()">{{operation.label}}</el-button>
     <edit-panel :operation="operation" :formModel="formModel" :handler="handlerUpdate" :actionInfo="actionInfo" :opt="opt"></edit-panel>
   </div>
 </template>
@@ -12,7 +12,7 @@ import EditPanel from '@/components/shared/EditPanel'
 import mixinEdit from '@/components/mixin/edit'
 export default {
   mixins: [mixinEdit],
-  props: ['form', 'operation', 'handle'],
+  props: ['outItem', 'operation', 'handle'],
   name: 'Edit',
   data () {
     return {
@@ -20,7 +20,11 @@ export default {
   },
   methods: {
     fetchData () {
-      let api = reverseApi(this.actionInfo.api, this.$route.params)
+      let params = this.$route.params
+      if (this.outItem) {
+        Object.assign(params, this.outItem)
+      }
+      let api = reverseApi(this.actionInfo.api, params)
       this._fetchData(this.$api[api.method](api.path))
     },
     handlerUpdate (formModel) {

@@ -11,7 +11,7 @@
         <div slot="header" class="clearfix">
           <ul class="clearfix">
             <li v-for="(operation,index) in actionInfo.operations" :key="index" class="pull-left" style="margin-right: 15px;">
-              <edit v-if="operation.actionView === 'Edit'" :operation="operation" :handle="fetchData" :form="item"></edit>
+              <edit v-if="operation.actionView === 'Edit'" :operation="operation" :handle="fetchData" :outItem="item"></edit>
             </li>
           </ul>
           <s-info :actionInfo="actionInfo" :item="item"></s-info>
