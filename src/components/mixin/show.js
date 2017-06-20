@@ -1,6 +1,8 @@
+import { getLinkToObj } from '@/libs/schemaTool'
 export default {
   data () {
     return {
+      dialogFormVisible: false,
       item: null,
       actionInfo: null
     }
@@ -13,8 +15,11 @@ export default {
     }
   },
   mounted () {
-    this.actionInfo = this.$route.meta.actionInfo
-    console.log(this.actionInfo)
+    if (this.operation) {
+      this.actionInfo = getLinkToObj(this.operation.linkTo)
+    } else {
+      this.actionInfo = this.$route.meta.actionInfo
+    }
     this.fetchData && this.fetchData()
   }
 }

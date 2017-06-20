@@ -1,44 +1,38 @@
 <template>
   <div v-if="actionInfo">
-    <div class="panel-header">
-      <span>{{actionInfo.title}}</span>
-    </div>
-    <show-panel :actionInfo="actionInfo" :item="item" :fetchData="fetchData"></show-panel>
-    <!-- <el-card>
-      <div slot="header" class="clearfix">
-        <ul class="clearfix">
-          <li v-for="(operation,index) in actionInfo.operations" :key="index" class="pull-left" style="margin-right: 15px;">
-            <edit v-if="operation.actionView === 'Edit'" :operation="operation" :handle="fetchData" :form="item"></edit>
-          </li>
-        </ul>
-      </div>
-      <el-row :gutter="20">
-        <el-col :xs="24" :sm="24" :md="12" :lg="8" v-for="(column,index) in actionInfo.columns" :key="index" class="col-item">
-          <div class="column">
-            <div class="label" :style="column.labelStyle">
-              <span>{{column.label}}</span>
-            </div>
-            <div class="value">
-              <span>{{item && item[column.prop]}}</span>
-            </div>
-          </div>
-        </el-col>
-      </el-row>
-    </el-card> -->
+    <el-button v-if="operation" :type="operation.type" @click="showClick">{{operation.label}}</el-button>
+    <show-panel :actionInfo="actionInfo" :operation="operation" :item="item" :fetchData="fetchData" :dialogFormVisible="dialogFormVisible"></show-panel>
   </div>
 </template>
 
 <script>
-import { reverseApi } from '@/libs/schemaTool'
+import { reverseApi, getLinkToObj } from '@/libs/schemaTool'
 import ShowPanel from '@/components/shared/ShowPanel'
 // mixin
 import mixinShow from '@/components/mixin/show'
 export default {
+  name: 'Show',
   mixins: [mixinShow],
+  props: ['operation', 'outItem'],
   methods: {
     fetchData () {
-      let api = reverseApi(this.actionInfo.api, this.$route.params)
-      this._fetchData(this.$api[api.method](api.path))
+      if (this.dialogFormVisible && this.operation && this.operation.isDialog) {
+        let linkTo = getLinkToObj(this.operation.linkTo)
+        let api = reverseApi(linkTo.api, this.outItem)
+        this._fetchData(this.$api[api.method](api.path))
+      } else if (!this.operation) {
+        let api = reverseApi(this.actionInfo.api, this.$route.params)
+        this._fetchData(this.$api[api.method](api.path))
+      }
+    },
+    showClick () {
+      if (this.operation && this.operation.isDialog) {
+        this.dialogFormVisible = true
+      } else {
+        let linkTo = getLinkToObj(this.operation.linkTo)
+        console.log(linkTo, 55)
+        this.$router.push({name: linkTo.router.name, params: this.outItem})
+      }
     }
   },
   components: {

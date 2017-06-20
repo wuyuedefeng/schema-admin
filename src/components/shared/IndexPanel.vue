@@ -4,7 +4,11 @@
       <template scope="scope">
         <span v-if="column.type==='Boolean'">{{ getBooleanVal(scope.row, column)}}</span>
         <div v-else-if="column.type==='Operation'">
-          <el-button v-for="(operation, index) in column.operations" :key="index" :icon="operation.icon" :type="operation.type" size="small" @click="handleOperation(column, operation, scope.row )">{{operation.label}}</el-button>
+          <ul>
+            <li v-for="(operation, index) in column.operations" :key="index">
+              <show v-if="operation.actionView === 'Show'" :operation="operation" :outItem="scope.row"></show>
+            </li>
+          </ul>
         </div>
         <span v-else>{{scope.row[column['prop']]}}</span>
       </template>
@@ -13,8 +17,9 @@
 </template>
 
 <script>
-import { Table, TableColumn } from 'element-ui'
 import { getLinkToObj } from '@/libs/schemaTool'
+import { Table, TableColumn } from 'element-ui'
+import Show from '@/views/actions/Show'
 export default {
   name: 'IndexPanel',
   props: ['items', 'loading', 'fetchData', 'actionInfo'],
@@ -33,7 +38,8 @@ export default {
   },
   components: {
     [Table.name]: Table,
-    [TableColumn.name]: TableColumn
+    [TableColumn.name]: TableColumn,
+    [Show.name]: Show
   }
 }
 </script>
