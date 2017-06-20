@@ -13,6 +13,7 @@ export const getLinkToObj = (linkTo) => {
 
 let Route = require('route-parser')
 export const reverseApi = (api, params) => {
+  api = Object.assign({}, api)
   var route = new Route(api.path)
   api.path = route.reverse(params)
   return api

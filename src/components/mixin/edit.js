@@ -20,7 +20,6 @@ export default {
     _fetchData (promise) {
       promise.then((res) => {
         this.formModel = res.data[this.actionInfo.itemKey]
-        console.log(this.formModel)
       })
     },
     _handlerUpdate (formModel) {
