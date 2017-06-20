@@ -4,9 +4,10 @@
       <template scope="scope">
         <div v-if="column.type==='Operation'">
           <ul>
-            <li v-for="(operation, index) in column.operations" :key="index">
+            <li v-for="(operation, index) in column.operations" :key="index" class="inline-block" style="margin-right: 10px;">
               <show v-if="operation.actionView === 'Show'" :operation="operation" :outItem="scope.row"></show>
               <edit v-if="operation.actionView === 'Edit'" :operation="operation" :outItem="scope.row" :handle="fetchData"></edit>
+              <delete v-if="operation.actionView === 'Delete'" :operation="operation" :outItem="scope.row"></delete>
             </li>
           </ul>
         </div>
@@ -23,6 +24,7 @@ import { getLinkToObj } from '@/libs/schemaTool'
 import { Table, TableColumn } from 'element-ui'
 import Show from '@/views/actions/Show'
 import Edit from '@/views/actions/Edit'
+import Delete from '@/views/actions/Delete'
 export default {
   name: 'IndexPanel',
   props: ['items', 'loading', 'fetchData', 'actionInfo'],
@@ -43,7 +45,8 @@ export default {
     [Table.name]: Table,
     [TableColumn.name]: TableColumn,
     [Show.name]: Show,
-    [Edit.name]: Edit
+    [Edit.name]: Edit,
+    [Delete.name]: Delete
   }
 }
 </script>

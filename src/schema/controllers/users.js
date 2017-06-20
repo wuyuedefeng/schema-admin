@@ -8,10 +8,10 @@ module.exports = {
       {prop: 'id', type: 'Number', label: '#', width: '80px', fixed: null, operation: {labelProp: 'id', type: 'text', size: "small", icon: 'info', actionView: 'Show', linkTo: 'users.show', isDialog: true }},
       {prop: 'username', type: 'String', label: 'username'},
       {prop: 'isActive', type: 'Boolean', label: 'isActive', trueValue: '是', falseValue: '否'},
-      {type: 'Operation', label: '操作', width: "300", fixed: 'right', operations: [
+      {type: 'Operation', label: '操作', width: "200", fixed: 'right', operations: [
         // {label: '详情', type: 'default', size: "small", icon: 'info', actionView: 'Show', linkTo: 'users.show', isDialog: false},
-        {label: '编辑', type: 'default', icon: 'edit', size: "small", actionView: 'Edit', linkTo: 'users.edit', isDialog: false}
-        // {label: '删除', type: 'danger', icon: 'delete', action: 'Delete'}
+        {label: '编辑', type: 'default', icon: 'edit', size: 'small', actionView: 'Edit', linkTo: 'users.edit', isDialog: false},
+        {label: '删除', type: 'danger', icon: 'delete', size: 'small', actionView: 'Delete', linkTo: 'users.delete'}
       ]}
     ]
   },
@@ -78,5 +78,8 @@ module.exports = {
         {prop: 'desc', label: '描述', control: 'input', type: 'textarea', autosize: true, placeholder: '请输入描述', disabled: false},
       ]
     }
+  },
+  delete: {
+    api: {method: 'delete', path: '/api/v1/users/:id'}
   }
 }

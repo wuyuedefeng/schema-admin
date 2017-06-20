@@ -36,12 +36,10 @@ export default {
       this._handlerUpdate(formModel)
     },
     editClick () {
-      console.log(this.operation)
       if (this.operation.isDialog) {
         this.opt.dialogFormVisible = true
       } else {
         let linkTo = getLinkToObj(this.operation.linkTo)
-        console.log(linkTo, 2, linkTo.router.name, this.calcParams)
         this.$router.push({name: linkTo.router.name, params: this.calcParams})
       }
     }
