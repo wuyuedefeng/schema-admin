@@ -3,6 +3,11 @@ module.exports = {
     router: {path: '/users', name: 'User', meta: { auth: true, actionView: 'Index', navIndex: 'User' }},
     api: {method: 'get', path: '/api/v1/users'},
     itemsKey: 'items', // res.data.items
+    searchBar: {
+      searches: [
+        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'}
+      ]
+    },
     operations: [{label: '新增', type: 'default', actionView: 'New', linkTo: 'users.new', isDialog: true}],
     columns: [
       {prop: 'id', type: 'Number', label: '#', width: '80px', fixed: null, operation: {labelProp: 'id', type: 'text', size: "small", icon: 'info', actionView: 'Show', linkTo: 'users.show', isDialog: true }},

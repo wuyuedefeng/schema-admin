@@ -3,6 +3,9 @@ export default {
     return {
       items: [],
       loading: false,
+      // 搜索
+      q: {},
+      // 分页
       paginateMeta: {},
       actionInfo: null
     }

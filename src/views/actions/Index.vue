@@ -6,6 +6,9 @@
       </div>
     </div>
     <el-card>
+      <div slot="header" v-if="actionInfo.searchBar">
+        <search-bar :q="q" :searchBar="actionInfo.searchBar"></search-bar>
+      </div>
       <index-panel :items="items" :loading="loading" :fetchData="fetchData" :actionInfo="actionInfo"></index-panel>
     </el-card>
   </div>
@@ -14,6 +17,7 @@
 <script>
 import New from './New'
 import IndexPanel from '@/components/shared/IndexPanel'
+import SearchBar from '@/components/shared/SearchBar'
 // mixin
 import mixinIndex from '@/components/mixin/index'
 export default {
@@ -25,7 +29,8 @@ export default {
   },
   components: {
     [New.name]: New,
-    [IndexPanel.name]: IndexPanel
+    [IndexPanel.name]: IndexPanel,
+    [SearchBar.name]: SearchBar
   }
 }
 </script>
