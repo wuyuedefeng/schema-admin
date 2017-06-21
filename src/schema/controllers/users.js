@@ -6,14 +6,7 @@ module.exports = {
     searchBar: {
       searches: [
         {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'},
-        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'},
-        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'},
-        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'},
-        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'},
-        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'},
-        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'},
-        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'},
-        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'}
+        {prop: 'q_phone_eq', label: '手机号', control: 'input', default: '', type: 'text', placeholder: '搜索手机号'}
       ]
     },
     operations: [{label: '新增', type: 'default', actionView: 'New', linkTo: 'users.new', isDialog: true}],
