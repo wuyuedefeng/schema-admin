@@ -1,7 +1,7 @@
 import * as types from '../mutation-types'
 export default {
   state: {
-    info: {}
+    info: null
   },
   getters: {
     isLogin (state) {

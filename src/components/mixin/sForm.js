@@ -16,7 +16,7 @@ export default {
     submitForm (form) {
       this.$refs[form].validate((valid) => {
         if (valid) {
-          this.handler(this.formModel)
+          this.handler && this.handler(this.formModel)
         }
       })
     }

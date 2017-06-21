@@ -1,5 +1,5 @@
 <template>
-  <div v-if="actionInfo">
+  <div v-if="actionInfo" :style="actionInfo.style">
     <el-button v-if="operation" :type="operation.type" @click="newClick()">{{operation.label}}</el-button>
     <new-panel :operation="operation" :formModel="formModel" :handler="handlerCreate" :actionInfo="actionInfo" :opt="opt"></new-panel>
   </div>

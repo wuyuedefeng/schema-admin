@@ -8,6 +8,7 @@ let actionRoutes = []
 Object.keys(controllers).forEach((key) => {
   let controller = controllers[key]
   Object.keys(controller).forEach((key) => {
+    console.log(key)
     let router = controller[key]['router']
     if (router) {
       router.meta.controllerInfo = controller

@@ -4,7 +4,7 @@
       <s-form :form="actionInfo.form" :formModel="formModel" :handler="handler"></s-form>
     </el-dialog>
     <div v-else-if="!operation">
-      <div class="panel-header">
+      <div class="panel-header" :style="actionInfo.titleStyle">
         <span>{{actionInfo.title}}</span>
       </div>
       <el-card>
