@@ -1,5 +1,6 @@
 const schema = {
   env: require(`./env/${process.env.NODE_ENV}`),
+  globlalConfig: require('./globalConfig'),
   controllers: require('./controllers')
 }
 schema.install = function (Vue, options) {

@@ -1,5 +1,5 @@
 <template>
-  <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="q.page" :page-sizes="[10, 20, 30, 40]" :page-size="q.per_page" :layout="layout" :total="paginateMeta.total_count"></el-pagination>
+  <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange" :current-page="q[globalConfig.keys['currentPage']]" :page-sizes="globalConfig.pageSizes" :page-size="q[globalConfig.keys['pageSize']]" :layout="globalConfig.layout" :total="paginateMeta[globalConfig.keys['totalInPaginateMeta']]"></el-pagination>
 </template>
 
 <script>
@@ -12,19 +12,20 @@ export default {
     },
     paginateMeta: {
       type: Object
-    },
-    layout: {
-      type: String,
-      default: 'total, sizes, prev, pager, next, jumper'
+    }
+  },
+  computed: {
+    globalConfig () {
+      return this.schema.globlalConfig.pagination
     }
   },
   methods: {
     handleSizeChange (val) {
-      this.q.per_page = val
+      this.q[this.globalConfig.keys['pageSize']] = val
       this.handleRouter()
     },
-    handleCurrentPageChange (val) {
-      this.q.page = val
+    handleCurrentChange (val) {
+      this.q[this.globalConfig.keys['currentPage']] = val
       this.handleRouter()
     },
     handleRouter () {
