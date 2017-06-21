@@ -27,7 +27,7 @@ export default {
       let api = reverseApi(this.actionInfo.form.api, this.$route.params)
       this.$api[api.method](api.path, formModel).then((res) => {
         this.opt.dialogFormVisible = false
-        api.cb && api.cb({ $store: this.$store, $route: this.$route, $router: this.$router })
+        api.cb && api.cb({ $store: this.$store, $route: this.$route, $router: this.$router, res: res })
         this.handler && this.handler()
       }).catch((err) => {
         console.log(err)

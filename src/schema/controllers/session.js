@@ -9,8 +9,10 @@ module.exports = {
         console.log(3333333)
       }},
       columns: [
-        {prop: 'username', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '请输入用户名', disabled: false, autoComplate: 'off', minLength: 0, maxLength: 30, autoFocus: true},
-        {prop: 'password', label: '密码', control: 'input', type: 'password'}
+        { prop: 'user', control: 'object', columns: [
+          {prop: 'username', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '请输入用户名', disabled: false, autoComplate: 'off', minLength: 0, maxLength: 30, autoFocus: true},
+          {prop: 'password', label: '密码', control: 'input', type: 'password', placeholder: '请输入密码'}
+        ]}
       ],
       resetBtn: {hide: true},
       submitBtn: {label: '登录'}
