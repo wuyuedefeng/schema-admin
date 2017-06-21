@@ -10,6 +10,7 @@
         <search-bar :q="q" :searchBar="actionInfo.searchBar"></search-bar>
       </div>
       <index-panel :items="items" :loading="loading" :fetchData="fetchData" :actionInfo="actionInfo"></index-panel>
+      <s-pagination :q="q" :paginateMeta="paginateMeta"></s-pagination>
     </el-card>
   </div>
 </template>
@@ -18,6 +19,7 @@
 import New from './New'
 import IndexPanel from '@/components/shared/IndexPanel'
 import SearchBar from '@/components/shared/SearchBar'
+import SPagination from '@/components/shared/SPagination'
 // mixin
 import mixinIndex from '@/components/mixin/index'
 export default {
@@ -30,7 +32,8 @@ export default {
   components: {
     [New.name]: New,
     [IndexPanel.name]: IndexPanel,
-    [SearchBar.name]: SearchBar
+    [SearchBar.name]: SearchBar,
+    [SPagination.name]: SPagination
   }
 }
 </script>

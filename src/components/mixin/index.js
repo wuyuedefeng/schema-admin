@@ -6,7 +6,9 @@ export default {
       // 搜索
       q: {},
       // 分页
-      paginateMeta: {},
+      paginateMeta: {
+        total_count: 0
+      },
       actionInfo: null
     }
   },
