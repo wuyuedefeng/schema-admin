@@ -1,5 +1,6 @@
 const schema = {
   env: require(`./env/${process.env.NODE_ENV}`),
+  dashboard: require('./dashboard'),
   globlalConfig: require('./globalConfig'),
   controllers: require('./controllers')
 }

@@ -1,4 +1,4 @@
 module.exports = {
-  dashboard: require('./dashboard'),
+  session: require('./session'),
   users: require('./users')
 }
