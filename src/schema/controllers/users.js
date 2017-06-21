@@ -5,6 +5,14 @@ module.exports = {
     itemsKey: 'items', // res.data.items
     searchBar: {
       searches: [
+        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'},
+        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'},
+        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'},
+        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'},
+        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'},
+        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'},
+        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'},
+        {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'},
         {prop: 'q_username_cont', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '搜索的用户名'}
       ]
     },

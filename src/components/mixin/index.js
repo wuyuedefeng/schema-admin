@@ -10,7 +10,15 @@ export default {
       actionInfo: null
     }
   },
+  watch: {
+    '$route': function (newRouter) {
+      this._fillQ()
+    }
+  },
   methods: {
+    _fillQ () {
+      this.q = Object.assign({page: 1, per_page: 10}, this.$route.query)
+    },
     _beforeFetch () {
       this.items = []
       this.loading = true
@@ -30,6 +38,7 @@ export default {
     }
   },
   mounted () {
+    this._fillQ()
     this.actionInfo = this.$route.meta.actionInfo
     this.fetchData && this.fetchData()
   }
