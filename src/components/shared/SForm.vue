@@ -2,7 +2,7 @@
   <el-form :model="formModel" ref="formRef" :labelWidth="form.labelWidth">
     <s-form-item :form="form" :formModel="formModel"></s-form-item>
     <el-form-item>
-      <el-button @click="resetForm('formRef')" v-if="isNew && !form.resetBtn.hide">Reset</el-button>
+      <el-button @click="resetForm('formRef')" v-if="isNew && !(form.resetBtn && form.resetBtn.hide)">Reset</el-button>
       <el-button type="primary" :disabled="fetching" @click="submitForm('formRef')">{{form.submitBtn && form.submitBtn.label || 'Submit'}}</el-button>
     </el-form-item>
   </el-form>
