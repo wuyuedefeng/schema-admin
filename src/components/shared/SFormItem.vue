@@ -1,7 +1,7 @@
 <template>
   <div>
-    <el-form-item v-for="(column,index) in form.columns" :key="index" :label="column.label" :prop="column.propRef || column.prop">
-      <s-form-item v-if="column.control === 'object'" :form="column" :formModel="formModel[column.prop]"></s-form-item>
+    <el-form-item v-for="(column,index) in form.columns" :key="index" :label="column.label" :prop="propPrefixs.concat(column.prop).join('.')">
+      <s-form-item v-if="column.control === 'object'" :form="column" :formModel="formModel[column.prop]" :propPrefixs="propPrefixs.concat(column.prop)"></s-form-item>
       <!-- input -->
       <el-input v-else-if="column.control==='input'" v-model="formModel[column.prop]" :type="column.type" :autosize="column.autosize" :disabled="column.disabled" :placeholder="column.placeholder" :auto-complete="column.autoComplate" :minlength="column.minLength" :maxlength="column.maxLength" :autofocus="column.autoFocus"></el-input>
       <!-- input number -->
@@ -22,7 +22,18 @@
 import { FormItem, Input, InputNumber, Select, Option, Switch, DatePicker } from 'element-ui'
 export default {
   name: 'SFormItem',
-  props: ['form', 'formModel'],
+  props: {
+    form: {
+      type: Object
+    },
+    formModel: {
+      type: Object
+    },
+    propPrefixs: {
+      type: Array,
+      default: () => { return [] }
+    }
+  },
   components: {
     [FormItem.name]: FormItem,
     [Input.name]: Input,

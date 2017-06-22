@@ -10,8 +10,8 @@ module.exports = {
       }},
       columns: [
         { prop: 'user', control: 'object', columns: [
-          {prop: 'username', propRef: 'user:username', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '请输入用户名', disabled: false, autoComplate: 'off', minLength: 0, maxLength: 30, autoFocus: true},
-          {prop: 'password', propRef: 'user:password', label: '密码', control: 'input', type: 'password', placeholder: '请输入密码'}
+          {prop: 'username', label: '用户名', control: 'input', default: '', type: 'text', placeholder: '请输入用户名', disabled: false, autoComplate: 'off', minLength: 0, maxLength: 30, autoFocus: true},
+          {prop: 'password', label: '密码', control: 'input', type: 'password', placeholder: '请输入密码'}
         ]}
       ],
       // resetBtn: {hide: true},
