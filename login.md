@@ -2,11 +2,9 @@ _**/src/controller/session.js**_
 
 ---
 
-action: login
+`module.exports = {`
 
-
-
-`login: {`
+`  login: {`
 
 `    style: {width: '600px', margin: '0 auto'},`
 
@@ -43,4 +41,8 @@ action: login
 `    }`
 
 `  }`
+
+`}`
+
+
 
