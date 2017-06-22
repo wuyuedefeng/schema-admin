@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-form-item v-for="(column,index) in form.columns" :key="index" :label="column.label" :prop="column.prop">
+    <el-form-item v-for="(column,index) in form.columns" :key="index" :label="column.label" :prop="column.propRef || column.prop">
       <s-form-item v-if="column.control === 'object'" :form="column" :formModel="formModel[column.prop]"></s-form-item>
       <!-- input -->
       <el-input v-else-if="column.control==='input'" v-model="formModel[column.prop]" :type="column.type" :autosize="column.autosize" :disabled="column.disabled" :placeholder="column.placeholder" :auto-complete="column.autoComplate" :minlength="column.minLength" :maxlength="column.maxLength" :autofocus="column.autoFocus"></el-input>
