@@ -19,6 +19,7 @@ export default {
   mutations: {
     [types.SET_USER_INFO] (state, info) {
       state.info = info
+      localStorage.setItem('userInfo', JSON.stringify(info))
     },
     [types.REMOVE_USER_INFO] (state) {
       state.info = null

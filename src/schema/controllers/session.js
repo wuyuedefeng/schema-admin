@@ -7,6 +7,9 @@ module.exports = {
     form: {
       api: {method: 'post', path: '/api/v1/login',  cb: (opt) => {
         console.log(3333333)
+        opt.$store.dispatch('setUserInfo', opt.res.data.session)
+        let redirect = decodeURIComponent(this.$route.query.redirect || '/')
+        opt.$router.push(redirect)
       }},
       columns: [
         { prop: 'user', control: 'object', columns: [
@@ -14,7 +17,7 @@ module.exports = {
           {prop: 'password', label: '密码', control: 'input', type: 'password', placeholder: '请输入密码'}
         ]}
       ],
-      // resetBtn: {hide: true},
+      resetBtn: {hide: true},
       submitBtn: {label: '登录'}
     }
   }

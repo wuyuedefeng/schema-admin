@@ -13,11 +13,16 @@ const instance = axios.create({
 // Add a request interceptor
 instance.interceptors.request.use(function (config) {
   // Do something before request is sent
+  Object.assign(config.headers, tokenHeader())
   return config
 }, function (error) {
   // Do something with request error
   return Promise.reject(error)
 })
+const tokenHeader = () => {
+  const token = store && store.state.user.info && store.state.user.info.token || ''
+  return { 'Authorization': `Token ${token}` }
+}
 // Add a response interceptor
 instance.interceptors.response.use(function (response) {
   // Do something with response data
